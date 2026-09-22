@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willians Rico - Portfolio</title>
+
+    <link rel="preload" href="assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/fira-code-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/fira-code-500.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!--Style Sheet-->
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+
+    <!-- Navigation -->
+    <header>
+     <nav>
+        <div class="nav-brand">
+
+            <!--AVATAR PICTURE TO CHANGE-->
+            <img src="assets/img/profile/profile.webp" alt="Profile Picture">
+            <span class="brand-text-gradient">&gt;_ ~/portfolio</span>
+        </div>
+        <div class="nav-links">
+            <a href="#hero">About</a>
+            <a href="#tech-stack">Skills</a>
+            <a href="#projects">Projects</a>
+        </div>
+     </nav>
+    </header>
+
+    <!-- Global Icon Layer for Scroll Animations -->
+    <div id="icon-layer">
+        <!-- Icons injected via JS -->
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-text">
+                <p class="greeting">Hey, my name is</p>
+                <h1>Willians Rico.</h1>
+                <h2 class="gradient-text">I help your company succeed online.</h2>
+                <h3>
+                    <span class="typing-container">
+                        <span id="typing-text"></span><span class="cursor">|</span>
+                    </span>
+                </h3>
+                <div class="btn-group">
+                    <a href="mailto:williansrico@gmail.com?subject=Portfolio%20Inquiry" class="btn btn-primary">Get In Touch</a>
+                    <a href="#certifications" class="btn btn-outline" id="certs-btn">Certifications</a>
+                </div>
+            </div>
+            
+            <div class="hero-terminal">
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="mac-dots">
+                            <span style="background:#ff5f56"></span>
+                            <span style="background:#ffbd2e"></span>
+                            <span style="background:#27c93f"></span>
+                        </div>
+                    </div>
+                    <div class="terminal-body" id="term-body">
+                        <!-- Terminal content injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section id="tech-stack">
+            <p>A Growing stack of</p>
+            <h2>13+ Technologies</h2>
+            <p class="tech-subtitle">Data, Automation, Dev & Cloud</p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header">
+                <h2>Systems I've built</h2>
+                <p>Hands on projects</p>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- Project Cards Container -->
+                
+                <!-- POPULATION ANALYSIS DASHBOARD -->
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="card-title">Population Analysis</div>
+                            <div class="card-subtitle">An insightful walk through</div>
+                        </div>
+                    </div>
+                    <div class="card-img-placeholder">
+                        <img src="assets/img/projects/growthratedash.webp" alt="Population Analysis Dashboard">
+                    </div>
+                        <div class="card-category">Data Analysis & Engineering</div>
+                        <div class="card-tags">Python - Neon - PostgreSQL - Power BI - GitHub - CI/CD - GCP</div>
+                        <div class="card-desc">An automated cleaning, storing, analysis and visualization pipeline process</div>
+                        <div class="card-footer">
+                            <a href="https://github.com/WilliansRico/Population_Analysis/blob/main/README.md" class="btn-sm btn-sec" target="_blank" rel="noopener noreferrer">Investigation Conclusions</a>
+                            <a href="PASTE-YOUR-DASHBOARD-LINK-HERE" class="btn-sm btn-git" target="_blank" rel="noopener noreferrer">Live Dashboard</a>
+                        </div>
+                    </div>
+                
+                <!--UPCOMING PROJECT (QUOTES WEB)-->
+
+                <div class="project-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="card-title">Quote Web</div>
+                            <div class="card-subtitle">Your inspiration and guidance starts here</div>
+                        </div>
+                    </div>
+    
+                <div class="card-img-placeholder">
+                    <img src="assets/img/projects/YOUR-IMAGE.png" alt="Coming Soon">
+                </div>
+                <div class="card-category">DevOps</div>
+                <div class="card-tags">Python - CI/CD - HTML/CSS/JS - AWS - Nginx</div>
+                <div class="card-desc">A motivational quotes web application for inspiration and guidance.</div>
+                <div class="card-footer">
+                    <a href="DASHBOARD-LINK" class="btn-sm btn-git" target="_blank" rel="noopener noreferrer">Quote Web</a>
+                        </div>
+                </div>
+            </div>
+
+    </section>
+        
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-copy">&copy; <span id="footer-year"></span> WilliansRico</p>
+            <div class="footer-links">
+                <a href="https://github.com/WilliansRico" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://linkedin.com/in/williansrico" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+        <!--certifications pop-up-->
+
+    <div class="modal-overlay" id="certs-modal">
+        <div class="modal-box" role="dialog" aria-modal="true">
+            <div class="modal-head">
+                <div>
+                    <h2>Certifications &amp; Education</h2>
+                    <p>Click on any card to view it full size</p>
+                </div>
+                <button class="modal-close" id="certs-close" aria-label="close">&times;</button>
+            </div>
+            <div class="cert-grid" id="cert-grid"></div>
+        </div>
+    </div>
+
+    <!--Full-size image viewer-->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script src="js/certifications.js"></script>
+    <script src="js/typewriter.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/icons.js"></script>
+
+</body>
+</html>
