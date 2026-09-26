@@ -1,25 +1,28 @@
-# ENV Variables
+# Environment variables
 #-------------------------
-
 .env
 *.env
 
 # Tokens and credentials
 #-------------------------
-
 *token*
 tokens*
 *keys*
-*key*
+key*
 
-# Terraform
-#-------------------------
-*.tfstate*
-*.tfstate
+# Terraform generated state / local data
+#-----------------------------------------
 .terraform/
-*terraform.tfstate*
+*.tfstate
+*.tfstate.*
 *.tfvars
-crash.log
-*override.tf*
-crash.*.log
 *.tfvars.json
+crash.log
+crash.*.log
+
+# Terraform override files
+#--------------------------
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json

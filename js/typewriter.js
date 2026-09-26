@@ -1,6 +1,7 @@
- /* =========================================
-    1. Dynamic Typewriter Effect
-========================================= */
+ /*
+    Dynamic Typewriter Effect
+*/
+
         const typeWords = ["Data analysis", "Data engineering", "Automation", "DevOps"];
         let wordIdx = 0;
         let charIdx = 0;

@@ -157,9 +157,10 @@
 
         .icon-wrapper {
             position: absolute;
-            transform: translate(-50%, -50%); 
-            will-change: left, top;
-            pointer-events: auto; 
+            top: 0;
+            left: 0;
+            will-change: transform;
+            pointer-events: auto;
             cursor: pointer;
         }
 
@@ -231,6 +232,7 @@
         /* --- Hero Section --- */
         #hero {
             min-height: 100vh;
+            min-height: 100dvh;
             padding: 120px 5% 50px;
             display: flex;
             align-items: center;
@@ -398,6 +400,7 @@
         /* --- Tech Stack Section --- */
         #tech-stack {
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -434,8 +437,9 @@
         /* --- Projects Section --- */
         #projects {
             min-height: 100vh;
+            min-height: 100dvh;
             padding: 120px 5%;
-            background: linear-gradient(180deg, #ffffff 0%, #f5f3ff 48%, #eefcff 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #f5f3ff 48%, #ddd6fe 100%);
             position: relative;
             z-index: 20;
         }
@@ -586,7 +590,7 @@
 
         /* --- Footer Section ---*/
         .site-footer {
-            background: #eefcff;
+            background: #ddd6fe;
             padding: 50px 5% 40px;
             text-align: center;
             position: relative;
