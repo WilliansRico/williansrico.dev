@@ -9,6 +9,11 @@
 tokens*
 *keys*
 key*
+*.pem
+*.p12
+*.pfx
+*credentials*
+*secret*
 
 # Terraform generated state / local data
 #-----------------------------------------
@@ -26,3 +31,22 @@ override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+
+# Ignore CLI configuration files
+#--------------------------------
+.terraformrc
+terraform.rc
+
+# TERRAFORM PLANS
+#-------------------------------
+*tfplan*
+*.plan*
+*lock*
+
+# Ignore transient lock info files created by terraform apply
+#--------------------------------------------------------------
+.terraform.tfstate.lock.info
+
+# tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+#---------------------------------------------------------------------------------
+*tfplan*
