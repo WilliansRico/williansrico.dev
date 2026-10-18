@@ -1,6 +1,11 @@
 data "terraform_remote_state" "compute" {
-  backend = "local"
+  backend = "remote"
+
   config = {
-    path = "../03-compute-layer/terraform.tfstate"
+    organization = "terraform-portfolio-state"
+
+    workspaces = {
+      name = "dev-03-compute-layer"
+    }
   }
 }
