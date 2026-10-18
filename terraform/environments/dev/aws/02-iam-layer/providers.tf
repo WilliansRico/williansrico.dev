@@ -1,10 +1,19 @@
 terraform {
-  required_version = ">= 1.14.6"
+  required_version = ">= 1.16.6"
 
+  cloud {
+    
+    organization = "terraform-portfolio-state"
+
+    workspaces {
+      name = "dev-02-iam-layer"
+    }
+  }
+  
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.92"
+      version = "~> 6.68"
     }
   }
 }

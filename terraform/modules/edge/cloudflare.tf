@@ -72,7 +72,7 @@ resource "cloudflare_ruleset" "redirects" {
       {
         ref         = "www_to_apex"
         description = "Redirect WWW hostname to apex domain"
-        expression  = "(http.host eq \"${var.domain_name}\")"
+        expression = "(http.host eq \"www.${var.domain_name}\")"
         action      = "redirect"
 
         action_parameters = {

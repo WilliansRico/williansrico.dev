@@ -1,15 +1,23 @@
 data "terraform_remote_state" "networking" {
-  backend = "local"
+  backend = "remote"
 
   config = {
-    path = "../01-networking-layer/terraform.tfstate"
+    organization = "terraform-portfolio-state"
+
+    workspaces = {
+      name = "prod-01-networking-layer"
+    }
   }
 }
 
 data "terraform_remote_state" "iam" {
-  backend = "local"
-
+  backend = "remote"
+  
   config = {
-    path = "../02-iam-layer/terraform.tfstate"
+    organization = "terraform-portfolio-state"
+
+    workspaces = {
+      name = "prod-02-iam-layer"
+    }
   }
 }
