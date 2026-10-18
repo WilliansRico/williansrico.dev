@@ -1,25 +1,52 @@
-# ENV Variables
+# Environment variables
 #-------------------------
-
 .env
 *.env
 
 # Tokens and credentials
 #-------------------------
-
 *token*
 tokens*
 *keys*
-*key*
+key*
+*.pem
+*.p12
+*.pfx
+*credentials*
+*secret*
 
-# Terraform
-#-------------------------
-*.tfstate*
-*.tfstate
+# Terraform generated state / local data
+#-----------------------------------------
 .terraform/
-*terraform.tfstate*
+*.tfstate
+*.tfstate.*
 *.tfvars
-crash.log
-*override.tf*
-crash.*.log
 *.tfvars.json
+crash.log
+crash.*.log
+
+# Terraform override files
+#--------------------------
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files
+#--------------------------------
+.terraformrc
+terraform.rc
+
+# TERRAFORM PLANS
+#-------------------------------
+*tfplan*
+*.plan*
+*lock*
+
+# Ignore transient lock info files created by terraform apply
+#--------------------------------------------------------------
+.terraform.tfstate.lock.info
+
+# tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+#---------------------------------------------------------------------------------
+*tfplan*

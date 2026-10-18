@@ -1,0 +1,43 @@
+# Environment / secrets
+#------------------------
+.env
+.env.*
+!.env.example
+
+# Credentials / sensitive files
+#-------------------------------
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*
+*secret*
+*token*
+
+# Terraform
+#----------------
+terraform/
+
+# Git / github
+#----------------
+.git/
+.github
+.gitignore
+
+# OS
+#----------------
+.DS_Store
+Thumbs.db
+
+# MDs
+#-----------------
+*.md
+
+# NGINX
+#----------------
+nginx.conf
+
+# Dockerfile
+#---------------
+.dockerignore
+Dockerfile
