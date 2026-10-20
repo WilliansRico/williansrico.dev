@@ -3,7 +3,7 @@ terraform {
 
   cloud {
     
-    organization = "terraform-portfolio-state"
+    organization = "willians-organization"
 
     workspaces {
       name = "dev-04-edge-layer"
