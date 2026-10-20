@@ -3,7 +3,7 @@ terraform {
 
   cloud {
     
-    organization = "terraform-portfolio-state"
+    organization = "willians-organization"
 
     workspaces {
       name = "prod-01-networking-layer"
