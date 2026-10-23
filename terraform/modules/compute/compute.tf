@@ -39,31 +39,35 @@ resource "aws_instance" "web_server" {
   user_data = <<-EOF
     #!/bin/bash
 
-    set -e
+    set -Eeuo pipefail
 
     exec > >(tee /var/log/user-data.log | logger -t user-data -s 2>/dev/console) 2>&1
 
     #--------------------------------
-    # Nginx Installation
+    # TLS CERTIFICATE DEPLOYMENT
     #--------------------------------
 
-    apt-get update
-    apt-get install -y nginx
+    install -d -m 0755 /opt/portfolio/certs
 
-    systemctl enable nginx
-    systemctl start nginx
-
-    #--------------------------------
-    # PUBLIC CERT UPLOAD
-    #--------------------------------
-
-    install -d -m 0755 /etc/nginx/ssl
-
-    cat > /etc/nginx/ssl/aop-root-ca.crt <<'CERT'
+    # AOP CA certificate: Nginx uses this to verify Cloudflare's client certificate.
+    cat > /opt/portfolio/certs/aop-root-ca.crt <<'CERT'
     ${tls_self_signed_cert.root_ca.cert_pem}
     CERT
 
-    chmod 0644 /etc/nginx/ssl/aop-root-ca.crt
+    # Origin server certificate: Nginx presents this certificate to Cloudflare.
+    cat > /opt/portfolio/certs/origin-server.crt <<'CERT'
+    ${cloudflare_origin_ca_certificate.origin_server.certificate}
+    CERT
+
+    # Origin server private key: Nginx uses this to prove its identity.
+    cat > /opt/portfolio/certs/origin-server.key <<'KEY'
+    ${tls_private_key.origin_server.private_key_pem}
+    KEY
+
+    # Restrict access to the private key.
+    chmod 0644 /opt/portfolio/certs/aop-root-ca.crt
+    chmod 0644 /opt/portfolio/certs/origin-server.crt
+    chmod 0600 /opt/portfolio/certs/origin-server.key
 
     #--------------------------------
     # Docker Installation
