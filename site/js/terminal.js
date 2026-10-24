@@ -23,7 +23,18 @@ const commands = {
 function createTermLine(prompt, cmd) {
     let div = document.createElement('div');
     div.className = "term-line";
-    div.innerHTML = `<span class="term-prompt">${prompt}</span><span class="term-cmd">${cmd}</span>`;
+
+    const promptSpan = document.createElement('span');
+    promptSpan.className = "term-prompt";
+    promptSpan.textContent = prompt;
+
+    const cmdSpan = document.createElement('span');
+    cmdSpan.className = "term-cmd";
+    cmdSpan.textContent = cmd;
+
+    div.appendChild(promptSpan);
+    div.appendChild(cmdSpan);
+
     return div;
 }
 
