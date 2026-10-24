@@ -29,6 +29,7 @@ resource "aws_instance" "web_server" {
   subnet_id                   = var.subnet_id
   iam_instance_profile        = var.iam_instance_profile
   associate_public_ip_address = true
+  ipv6_address_count          = 1
 
   metadata_options {
     http_endpoint               = "enabled"
