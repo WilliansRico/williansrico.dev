@@ -2,12 +2,11 @@
 # CLOUDFLARE PROXIED DNS RECORDS
 #-----------------------------------------
 
-# ROOT DOMAIN (APEX)
-
+# DYNAMIC ENVIRONMENTAL DOMAINS DNS RECORDS
 resource "cloudflare_dns_record" "root" {
   zone_id = var.cloudflare_zone_id
 
-  name    = "@"
+  name    = lower(var.environment) == "prod" ? "@" : "dev"
   type    = "A"
   content = var.server_public_ip
 
@@ -17,11 +16,22 @@ resource "cloudflare_dns_record" "root" {
   comment = "Portfolio ${var.environment} root proxied domain"
 }
 
+resource "cloudflare_dns_record" "ipv6" {
+  zone_id = var.cloudflare_zone_id
+
+  name = lower(var.environment) == "prod" ? "@" : "dev"
+  type = "AAAA"
+
+  content = aws_instance.web_server.ipv6_addresses[0]
+
+  ttl     = 1
+  proxied = true
+
+  comment = "Portfolio ${var.environment} IPv6 proxied DNS record"
+}
 
 # SUBDOMAIN REDIRECTION (Prod Only)
-
 resource "cloudflare_dns_record" "www" {
-  # Use this redirect if it's PROD only, otherwise skip as this suffix is not valid for DEV
   count = lower(var.environment) == "prod" ? 1 : 0
 
   zone_id = var.cloudflare_zone_id
@@ -39,7 +49,6 @@ resource "cloudflare_dns_record" "www" {
 #-----------------------------------------
 # CLOUDFLARE REDIRECTS
 #-----------------------------------------
-
 resource "cloudflare_ruleset" "redirects" {
   zone_id     = var.cloudflare_zone_id
   name        = "Portfolio ${var.environment} Redirects"
@@ -94,7 +103,6 @@ resource "cloudflare_ruleset" "redirects" {
 #--------------------------------------
 # SSL FULL STRICT MODE
 #--------------------------------------
-
 resource "cloudflare_zone_setting" "zone_settings_ssl_strict" {
   zone_id    = var.cloudflare_zone_id
   setting_id = "ssl"
@@ -104,7 +112,6 @@ resource "cloudflare_zone_setting" "zone_settings_ssl_strict" {
 #----------------------------------------------------------------
 # CLOUDFLARE AUTHENTICATED ORIGIN PULLS (AOP) PER-HOSTNAME LEVEL
 #----------------------------------------------------------------
-
 resource "cloudflare_authenticated_origin_pulls_hostname_certificate" "portfolio" {
   zone_id = var.cloudflare_zone_id
 
@@ -116,8 +123,8 @@ resource "cloudflare_authenticated_origin_pulls" "portfolio" {
   zone_id = var.cloudflare_zone_id
 
   config = [{
-    hostname = var.domain_name
-    cert_id  = cloudflare_authenticated_origin_pulls_hostname_certificate.portfolio.id
-    enabled  = true
-  }]
+      hostname = lower(var.environment) == "prod" ? "williansrico.dev" : "dev.williansrico.dev"
+      cert_id  = cloudflare_authenticated_origin_pulls_hostname_certificate.portfolio.id
+      enabled  = true
+    }]
 }
