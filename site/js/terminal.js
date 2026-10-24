@@ -137,7 +137,16 @@ function setupInteractiveInput() {
                 } else {
                     let out = document.createElement('div');
                     out.className = "term-output";
-                    out.innerHTML = `bash: ${val}: command not found<br>Try '<strong>help</strong>' for available commands.`;
+
+                    out.appendChild(document.createTextNode(`bash: ${val}: command not found`));
+                    out.appendChild(document.createElement('br'));
+                    out.appendChild(document.createTextNode("Try '"));
+
+                    const strong = document.createElement('strong');
+                    strong.textContent = "help";
+                    out.appendChild(strong);
+
+                    out.appendChild(document.createTextNode("' for available commands."));
                     termBody.insertBefore(out, wrapper);
                 }
             } else {
