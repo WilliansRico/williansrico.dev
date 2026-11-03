@@ -2,7 +2,7 @@
     Dynamic Typewriter Effect
 */
 
-        const typeWords = ["Data analysis", "Data engineering", "Automation", "DevOps"];
+        const typeWords = ["Data analysis", "Data engineering", "Automation", "DevOps Engineering", "Software Development"];
         let wordIdx = 0;
         let charIdx = 0;
         let isDeleting = false;
