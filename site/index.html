@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Willians Rico - Portfolio</title>
 
+
+    <!-- Website Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+    <!-- Broader Favicon Compatibility -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Fonts -->
     <link rel="preload" href="assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/fira-code-400.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/fira-code-500.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!--Style Sheet-->
+    <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
-    </head>
+</head>
 
     <body>
 
@@ -20,11 +30,22 @@
      <nav>
         <div class="nav-brand">
 
-            <!--AVATAR PICTURE TO CHANGE-->
+            <!--AVATAR PICTURE-->
             <img src="assets/img/profile/profile.webp" alt="Profile Picture">
             <span class="brand-text-gradient">&gt;_ ~/portfolio</span>
         </div>
-        <div class="nav-links">
+        <button
+            class="mobile-menu-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="primary-navigation">
             <a href="#hero">About</a>
             <a href="#tech-stack">Skills</a>
             <a href="#projects">Projects</a>
@@ -44,9 +65,6 @@
         <!-- Hero Section -->
         <section id="hero">
             <div class="hero-text">
-                <img src="assets/icons/Git.svg" alt="Git" class="mobile-hero-icon icon-git" loading="lazy">
-                <img src="assets/icons/Python.svg" alt="Python" class="mobile-hero-icon icon-python" loading="lazy">
-                <img src="assets/icons/PostgreSQL.svg" alt="PostgreSQL" class="mobile-hero-icon icon-postgres" loading="lazy">
         
                 <p class="greeting">Hey, my name is</p>
                 <h1>Willians Rico.</h1>
@@ -67,12 +85,11 @@
             
             <div class="hero-terminal">
                 <div class="terminal-container">
-                <img src="assets/icons/Linux.svg" alt="Linux" class="mobile-hero-icon icon-linux" loading="lazy">
                 <div class="terminal-header">
                         <div class="mac-dots">
-                            <span style="background:#ff5f56"></span>
-                            <span style="background:#ffbd2e"></span>
-                            <span style="background:#27c93f"></span>
+                            <span class="terminal-dot terminal-dot-red"></span>
+                            <span class="terminal-dot terminal-dot-yellow"></span>
+                            <span class="terminal-dot terminal-dot-green"></span>
                         </div>
                     </div>
                     <div class="terminal-body" id="term-body">
@@ -85,9 +102,8 @@
         <!-- Tech Stack Section -->
         <section id="tech-stack">
             <p>A Growing stack of</p>
-            <h2>13+ Technologies</h2>
+            <h2>15+ Technologies</h2>
             <p class="tech-subtitle">Data, Automation, Dev & Cloud</p>
-            <div class="tech-icons-mobile" id="tech-icons-mobile"></div>
         </section>
 
         <!-- Projects Section -->
@@ -160,39 +176,8 @@
     <script src="js/certifications.js"></script>
     <script src="js/typewriter.js"></script>
     <script src="js/terminal.js"></script>
+    <script src="js/icons.js"></script>
 
-        <script src="js/icons.js"></script>
-    <script>
-        (function () {
-            var mobileLayer = document.getElementById('tech-icons-mobile');
-            if (!mobileLayer || typeof iconsData === 'undefined') return;
-
-            var heroIcons = ['Git', 'Linux', 'Python', 'PostgreSQL'];
-            var gridIcons = iconsData.filter(function (icon) {
-                return heroIcons.indexOf(icon.name) === -1;
-            });
-
-            mobileLayer.innerHTML = gridIcons.map(function (icon, i) {
-                return '<img src="' + icon.url + '" alt="' + icon.name +
-                       '" loading="lazy" style="transition-delay:' + (i * 45) + 'ms">';
-            }).join('');
-
-            if ('IntersectionObserver' in window) {
-                var io = new IntersectionObserver(function (entries) {
-                    entries.forEach(function (entry) {
-                        if (entry.isIntersecting) {
-                            mobileLayer.classList.add('in-view');
-                            io.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.2 });
-                io.observe(mobileLayer);
-            } else {
-                mobileLayer.classList.add('in-view');
-            }
-        })();
-
-    </script>
 
 </body>
 </html>
