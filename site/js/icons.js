@@ -20,42 +20,42 @@ if (iconLayer && techStackSection) {
             name: 'GitHub',
             url: 'assets/icons/GitHub.svg',
             hX: 88, hY: 18,
-            mHX: 86, mHY: 24.8,
+            mHX: 89.5, mHY: 23.5,
             tX: 55, tY: 26
         },
         {
             name: 'Linux',
             url: 'assets/icons/Linux.svg',
             hX: 51, hY: 21.5,
-            mHX: 88, mHY: 44,
+            mHX: 93, mHY: 41.8,
             tX: 35.5, tY: 44
         },
         {
             name: 'Docker',
             url: 'assets/icons/Docker.svg',
             hX: 15, hY: 85,
-            mHX: 68, mHY: 20,
+            mHX: 69, mHY: 19.5,
             tX: 70, tY: 70
         },
         {
             name: 'Amazon Web Services',
             url: 'assets/icons/AWS.svg',
             hX: 64, hY: 91,
-            mHX: 55, mHY: 36,
+            mHX: 54, mHY: 36.8,
             tX: 25, tY: 66
         },
         {
             name: 'Python',
             url: 'assets/icons/Python.svg',
             hX: 36, hY: 32,
-            mHX: 90, mHY: 16.7,
+            mHX: 93, mHY: 15.8,
             tX: 27, tY: 50
         },
         {
             name: 'Kubernetes',
             url: 'assets/icons/Kubernetes.svg',
             hX: 38, hY: 75,
-            mHX: 73, mHY: 39,
+            mHX: 77, mHY: 39,
             tX: 38, tY: 78
         },
         {
@@ -230,7 +230,11 @@ if (iconLayer && techStackSection) {
 
     const DESKTOP_LEAD_SCREENS = 1.4;
 
-    // interpolation speed.
+    /* MOBILE REFERENCE CANVAS */
+    const MOBILE_REFERENCE_WIDTH = 390;
+    const MOBILE_REFERENCE_HEIGHT = 844;
+
+    // Interpolation speed.
     const DESKTOP_LERP_FACTOR = 0.15;
 
     // Mobile acceleration.
@@ -311,8 +315,29 @@ if (iconLayer && techStackSection) {
             ? cachedTechStackHeight
             : techStackSection.offsetHeight;
 
+        /*
+         On mobile, preserve the same icon composition across screen sizes by mapping the fixed reference canvas into the visible viewport.
+         */
+        const mobileLayoutScale = isMobile
+            ? Math.min(
+                viewportWidth / MOBILE_REFERENCE_WIDTH,
+                window.innerHeight / MOBILE_REFERENCE_HEIGHT
+            )
+            : 1;
+
+        const mobileCanvasWidth = MOBILE_REFERENCE_WIDTH * mobileLayoutScale;
+        const mobileCanvasHeight = MOBILE_REFERENCE_HEIGHT * mobileLayoutScale;
+
+        const mobileCanvasOffsetX = isMobile
+            ? (viewportWidth - mobileCanvasWidth) / 2
+            : 0;
+
+        const mobileCanvasOffsetY = isMobile
+            ? (window.innerHeight - mobileCanvasHeight) / 2
+            : 0;
+
         const referenceHeight = isMobile
-            ? cachedViewportHeight
+            ? MOBILE_REFERENCE_HEIGHT
             : window.innerHeight;
 
 
@@ -325,8 +350,17 @@ if (iconLayer && techStackSection) {
             const greetingX = isMobile ? icon.mHX : icon.hX;
             const greetingY = isMobile ? icon.mHY : icon.hY;
 
-            const startX = (greetingX / 100) * viewportWidth;
-            const startY = (greetingY / 100) * referenceHeight;
+            const startX = isMobile
+                ? mobileCanvasOffsetX
+                    + (greetingX / 100) * MOBILE_REFERENCE_WIDTH
+                        * mobileLayoutScale
+                : (greetingX / 100) * viewportWidth;
+
+            const startY = isMobile
+                ? mobileCanvasOffsetY
+                    + (greetingY / 100) * MOBILE_REFERENCE_HEIGHT
+                        * mobileLayoutScale
+                : (greetingY / 100) * referenceHeight;
 
             let targetX;
             let targetY;
@@ -347,8 +381,11 @@ if (iconLayer && techStackSection) {
                     return;
                 }
 
-                targetX = (destination.x / 100) * viewportWidth;
+                targetX = mobileCanvasOffsetX
+                    + (destination.x / 100) * MOBILE_REFERENCE_WIDTH
+                        * mobileLayoutScale;
 
+                /* Keep landing positions relative to the real Tech Stack section. */
                 targetY = techStackDocumentTop
                     + (destination.y / 100) * techStackHeight;
 
@@ -526,7 +563,7 @@ if (iconLayer && techStackSection) {
     }
 
 
-    /* UPDATE TARGET  */
+    /* UPDATE TARGET */
 
     function updateTarget() {
 
@@ -760,7 +797,8 @@ if (iconLayer && techStackSection) {
     }
 }
 
-    /* ACCESSIBLE MOBILE NAVIGATION */
+
+/* ACCESSIBLE MOBILE NAVIGATION */
 
 (() => {
 

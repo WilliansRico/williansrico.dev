@@ -1,0 +1,4 @@
+Contact: mailto:security@williansrico.dev
+Expires: 2027-11-08T04:59:00.000Z
+Preferred-Languages: en, es
+Canonical: https://williansrico.dev/.well-known/security.txt
