@@ -13,35 +13,35 @@ if (iconLayer && techStackSection) {
             name: 'Terraform',
             url: 'assets/icons/terraform.svg',
             hX: 7, hY: 26,
-            mHX: 44, mHY: 15.7,
+            mHX: 50, mHY: 15.5,
             tX: 40, tY: 25
         },
         {
             name: 'GitHub',
             url: 'assets/icons/GitHub.svg',
             hX: 88, hY: 18,
-            mHX: 89.5, mHY: 23.5,
+            mHX: -89.5, mHY: 23.5,
             tX: 55, tY: 26
         },
         {
             name: 'Linux',
             url: 'assets/icons/Linux.svg',
             hX: 51, hY: 21.5,
-            mHX: 93, mHY: 41.8,
+            mHX: 91, mHY: 39.8,
             tX: 35.5, tY: 44
         },
         {
             name: 'Docker',
             url: 'assets/icons/Docker.svg',
             hX: 15, hY: 85,
-            mHX: 69, mHY: 19.5,
+            mHX: 73.5, mHY: 20.7,
             tX: 70, tY: 70
         },
         {
             name: 'Amazon Web Services',
             url: 'assets/icons/AWS.svg',
             hX: 64, hY: 91,
-            mHX: 54, mHY: 36.8,
+            mHX: 65, mHY: 35.8,
             tX: 25, tY: 66
         },
         {
@@ -55,7 +55,7 @@ if (iconLayer && techStackSection) {
             name: 'Kubernetes',
             url: 'assets/icons/Kubernetes.svg',
             hX: 38, hY: 75,
-            mHX: 77, mHY: 39,
+            mHX: -26, mHY: 39,
             tX: 38, tY: 78
         },
         {

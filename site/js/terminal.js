@@ -11,7 +11,7 @@ const TERMINAL_IDLE_TIMEOUT = 12000;
 
 const fileSystem = {
 
-    "bio.txt": "I am passionate about automation, data analysis, engineering, Software Development and DevOps. I really enjoy working with complex tools that challenge and push me to a deeper level.",
+    "bio.txt": "I'm a backend developer who covers the full path from raw data to production. I build the services, APIs and data pipelines, analyze the numbers behind them, and use DevOps and automation to deploy and run everything reliably. Python, Docker, AWS and Linux are my daily tools, and I do my best work on complex problems that push me to understand things deeply.",
 
     "services.txt": "Data Pipeline Architecture, Cloud Deployments (AWS/GCP), CI/CD (Tasks/Systems) Automation, Metric Dashboards, Data Analytics, Software/Web Development, and Web Systems Maintenance/Administration.",
 
