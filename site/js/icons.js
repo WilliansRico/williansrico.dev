@@ -18,49 +18,49 @@ if (iconLayer && techStackSection) {
         },
         {
             name: 'GitHub',
-            url: 'assets/icons/GitHub.svg',
+            url: 'assets/icons/github.svg', //HIDDEN IN MOBILE SCREENS
             hX: 88, hY: 18,
             mHX: -89.5, mHY: 23.5,
             tX: 55, tY: 26
         },
         {
             name: 'Linux',
-            url: 'assets/icons/Linux.svg',
-            hX: 51, hY: 21.5,
+            url: 'assets/icons/linux.svg',
+            hX: 51, hY: 18.7,
             mHX: 91, mHY: 39.8,
             tX: 35.5, tY: 44
         },
         {
             name: 'Docker',
-            url: 'assets/icons/Docker.svg',
-            hX: 15, hY: 85,
+            url: 'assets/icons/docker.svg',
+            hX: 15, hY: 88,
             mHX: 73.5, mHY: 20.7,
             tX: 70, tY: 70
         },
         {
             name: 'Amazon Web Services',
-            url: 'assets/icons/AWS.svg',
-            hX: 64, hY: 91,
+            url: 'assets/icons/aws.svg',
+            hX: 64, hY: 94,
             mHX: 65, mHY: 35.8,
             tX: 25, tY: 66
         },
         {
             name: 'Python',
-            url: 'assets/icons/Python.svg',
+            url: 'assets/icons/python.svg',
             hX: 36, hY: 32,
             mHX: 93, mHY: 15.8,
             tX: 27, tY: 50
         },
         {
             name: 'Kubernetes',
-            url: 'assets/icons/Kubernetes.svg',
+            url: 'assets/icons/kubernetes.svg', //HIDDEN IN MOBILE SCREENS
             hX: 38, hY: 75,
             mHX: -26, mHY: 39,
             tX: 38, tY: 78
         },
         {
             name: 'PostgreSQL',
-            url: 'assets/icons/PostgreSQL.svg',
+            url: 'assets/icons/postgresql.svg', //HIDDEN IN MOBILE SCREENS
             hX: 96, hY: 65,
             mHX: 32, mHY: 80,
             tX: 62, tY: 82
@@ -69,7 +69,7 @@ if (iconLayer && techStackSection) {
         // HIDDEN INITIALLY IN HERO ON MOBILE
         {
             name: 'Jupyter',
-            url: 'assets/icons/Jupyter.svg',
+            url: 'assets/icons/jupyter.svg',
             hX: -20, hY: 50,
             mHX: -20, mHY: 50,
             tX: 55, tY: 85
@@ -83,35 +83,35 @@ if (iconLayer && techStackSection) {
         },
         {
             name: 'Jira',
-            url: 'assets/icons/Jira.svg',
+            url: 'assets/icons/jira.svg',
             hX: 120, hY: 50,
             mHX: 120, mHY: 50,
             tX: 28, tY: 28
         },
         {
             name: 'Kibana',
-            url: 'assets/icons/Kibana.svg',
+            url: 'assets/icons/kibana.svg',
             hX: 120, hY: 120,
             mHX: 120, mHY: 120,
             tX: 65, tY: 35
         },
         {
             name: 'Oracle',
-            url: 'assets/icons/Oracle.svg',
+            url: 'assets/icons/oracle.svg',
             hX: 50, hY: 120,
             mHX: 50, mHY: -10,
             tX: 50, tY: 72
         },
         {
             name: 'Bash',
-            url: 'assets/icons/Bash.svg',
+            url: 'assets/icons/bash.svg',
             hX: 50, hY: -20,
             mHX: 50, mHY: -20,
             tX: 72, tY: 47
         },
         {
             name: 'MySQL',
-            url: 'assets/icons/MySQL.svg',
+            url: 'assets/icons/mysql.svg',
             hX: 120, hY: 80,
             mHX: 120, mHY: 80,
             tX: 42, tY: 88
@@ -125,21 +125,21 @@ if (iconLayer && techStackSection) {
         },
         {
             name: 'Nginx',
-            url: 'assets/icons/Nginx.svg',
+            url: 'assets/icons/nginx.svg',
             hX: 70, hY: -40,
             mHX: 70, mHY: -40,
             tX: 47, tY: 80
         },
         {
             name: 'Tableau',
-            url: 'assets/icons/Tableau.svg',
+            url: 'assets/icons/tableau.svg',
             hX: 120, hY: 20,
             mHX: 120, mHY: 20,
             tX: 48, tY: 25
         },
         {
             name: 'Power BI',
-            url: 'assets/icons/PowerBI.svg',
+            url: 'assets/icons/powerbi.svg',
             hX: 120, hY: 120,
             mHX: 120, mHY: 120,
             tX: 70, tY: 57
